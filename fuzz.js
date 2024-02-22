@@ -213,8 +213,8 @@ const COLORPOOL = (() => {
 function randomPoint() {
     return [
         Math.floor(Math.random() * (MAX_X - MIN_X)) + MIN_X, 
-        Math.floor(Math.random() * (MAX_Y - MIN_Y)) + MIN_Y,
         Math.floor(Math.random() * (MAX_Z - MIN_Z)) + MIN_Z,
+        Math.floor(Math.random() * (MAX_Y - MIN_Y)) + MIN_Y,
     ];
 };
 
@@ -246,7 +246,6 @@ function randomSection() {
     const sectionName = removeTags(randomMiddleSentence());
     const sectionLines = [];
     let currentPoint = randomPoint();
-    let currentColor = randomColor();
     for (let i = 0; i < LINE_PER_SECTION; i++) {
         const docLineText = toRichText(randomLineText());
         const docLine = {
@@ -255,7 +254,7 @@ function randomSection() {
         if (Math.random() < WARP_CHANCE) {
             // is a warp
             currentPoint = randomPoint();
-            currentColor = randomColor();
+            docLine.color = randomColor();
             docLine.movements = [{
                 to: currentPoint,
                 warp: true,
@@ -270,10 +269,6 @@ function randomSection() {
                     warp: false,
                 });
             }
-        }
-        docLine["line-color"] = currentColor;
-        if(!currentColor) {
-            throw new Error("No color");
         }
         // docLine.mapCoord = currentPoint;
         // docLine.otherMovements = []; //TODO too hard to test  with random doc
@@ -353,9 +348,6 @@ for (let i = 0; i < SECTIONS; i++) {
     route.push(docSection);
 }
 
-const jsonPayload = JSON.stringify(route, undefined, 2);
+const jsonPayload = JSON.stringify(route);
 const fs = require("fs");
 fs.writeFileSync("route.json", jsonPayload);
-// const command = `localStorage.setItem("test", ${JSON.stringify(jsonPayload)});testFn();`;
-// console.log(command);
-

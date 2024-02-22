@@ -1,0 +1,26 @@
+# The name of your project/route.
+# This will be displayed in the header for people who are viewing your route
+title: BotW 100% EX MGR OmeGEB
+
+# The version of your route. There's no particular format here.
+# This will be displayed in the metadata in the settings dialog
+version: 2.0.0
+
+# This is the route itself. Here it points to the main.yaml file we created earlier
+route: 
+  use: ./main.yaml
+
+# Extra configuration.
+# The project must define a map to compile properly.
+# For now, we will use the Breath of the Wild celer map maintained by Pistonight
+config:
+- use: Pistonight/celer-presets/botw/full.yaml
+- use: ./icons.yaml
+- plugins:
+    - use: metrics
+    - use: split-format
+      with:
+        Shrines: "[.var(pad03:counter-shrine)] .prop(text)"
+        Warps: "Warp .prop(text)"
+    - use: variables
+    - use: link

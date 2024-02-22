@@ -1,35 +1,5 @@
-title: Fuzz Test Doc
-config:
-- use: Pistonight/celer-presets/totk/map.yaml
-- icons:
-    shrine: https://icons.pistonite.org/icon/shrine.shrine.none.69a2d5.c1fefe.69a2d5.c1fefe.69a2d5.c1fefe.png
-  tags:
-    location:
-      bold: false
-      italic: false
-      underline: false
-      strikethrough: false
-      color: cyan
-    npc:
-      italic: false
-      underline: false
-      strikethrough: false
-      color: green
-      bold: true
-    abc:
-      bold: false
-      color: red
-      italic: true
-      underline: true
-      strikethrough: true
-      background: yellow
-    shrine-counter:
-      bold: false
-      italic: false
-      underline: false
-      strikethrough: false
-      color: black
-      background: cyan
-
-route:
-  use: ./route.json
+entry-points:
+  default: /default/project.yaml
+  omegeb: /regular/project.yaml
+  small: /small/project.yaml
+  s: small

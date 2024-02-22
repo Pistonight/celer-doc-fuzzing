@@ -1,0 +1,7 @@
+title: Fuzz Test Doc
+version: small
+config:
+- use: ../config.yaml
+
+route:
+  use: ./route.json
