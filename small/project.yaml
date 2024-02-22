@@ -1,4 +1,4 @@
-title: Fuzz Test Doc
+title: Fuzz Test Doc <script>alert(1)</script>
 version: small
 config:
 - use: ../config.yaml
