@@ -17,7 +17,6 @@ config:
 - use: Pistonight/celer-presets/botw/full.yaml
 - use: ./icons.yaml
 - plugins:
-    - use: metrics
     - use: split-format
       with:
         Shrines: "[.var(pad03:counter-shrine)] .prop(text)"
